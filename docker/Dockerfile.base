@@ -88,10 +88,6 @@ RUN touch /bin/nvidia-smi && \
 RUN --mount=type=cache,target=${DOCKER_USER_HOME}/.cache/pip \
     ${ISAACLAB_PATH}/isaaclab.sh --install
 
-# COPY ../../OmniDrones/ ${MARINEGYM_PATH}
-# RUN --mount=type=cache,target=${DOCKER_USER_HOME}/.cache/pip \
-#     ${MARINEGYM_PATH}/omnidrone.sh --install
-
 # aliasing isaaclab.sh and python for convenience
 RUN echo "export ISAACLAB_PATH=${ISAACLAB_PATH}" >> ${HOME}/.bashrc && \
     echo "alias isaaclab=${ISAACLAB_PATH}/isaaclab.sh" >> ${HOME}/.bashrc && \
