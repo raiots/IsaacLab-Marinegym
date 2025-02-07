@@ -90,8 +90,8 @@ def x11_check(statefile: StateFile) -> tuple[list[str], dict[str, str]] | None:
             "[INFO] It will fail if there is no display, or this script is being run via ssh without proper"
             " configuration."
         )
-        x11_answer = input("Would you like to enable it? (y/N) ")
-
+        # x11_answer = input("Would you like to enable it? (y/N) ")
+        x11_answer = "y"  # avoid EOFError: EOF when reading a line when build docker image
         # parse the user's input
         if x11_answer.lower() == "y":
             is_x11_forwarding_enabled = "1"
