@@ -51,8 +51,11 @@ RUN --mount=type=cache,target=/var/cache/apt \
     apt -y autoremove && apt clean autoclean && \
     rm -rf /var/lib/apt/lists/*
 
-# Copy the Isaac Lab directory (files to exclude are defined in .dockerignore)
-COPY ../ ${ISAACLAB_PATH}
+# Copy the required directories
+COPY ../source ${ISAACLAB_PATH}/source
+COPY ../docs ${ISAACLAB_PATH}/docs
+COPY ../tools ${ISAACLAB_PATH}/tools
+COPY ../../MarineGym ${MARINEGYM_PATH}
 
 # Set up a symbolic link between the installed Isaac Sim root folder and _isaac_sim in the Isaac Lab directory
 RUN ln -sf ${ISAACSIM_ROOT_PATH} ${ISAACLAB_PATH}/_isaac_sim
