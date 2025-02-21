@@ -53,6 +53,8 @@ RUN --mount=type=cache,target=/var/cache/apt \
     rm -rf /var/lib/apt/lists/*
 
 # Copy the required directories
+RUN pwd \
+    ls
 COPY source ${ISAACLAB_PATH}/source
 COPY docs ${ISAACLAB_PATH}/docs
 COPY tools ${ISAACLAB_PATH}/tools
