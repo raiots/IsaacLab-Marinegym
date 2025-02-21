@@ -45,6 +45,7 @@ RUN --mount=type=cache,target=/var/cache/apt \
     build-essential \
     cmake \
     git \
+    openssh-client \
     nano \
     libglib2.0-0 \
     ncurses-term && \
@@ -55,7 +56,7 @@ RUN --mount=type=cache,target=/var/cache/apt \
 COPY ../source ${ISAACLAB_PATH}/source
 COPY ../docs ${ISAACLAB_PATH}/docs
 COPY ../tools ${ISAACLAB_PATH}/tools
-COPY ../../MarineGym ${MARINEGYM_PATH}
+# COPY ../../MarineGym ${MARINEGYM_PATH}
 
 # Set up a symbolic link between the installed Isaac Sim root folder and _isaac_sim in the Isaac Lab directory
 RUN ln -sf ${ISAACSIM_ROOT_PATH} ${ISAACLAB_PATH}/_isaac_sim
